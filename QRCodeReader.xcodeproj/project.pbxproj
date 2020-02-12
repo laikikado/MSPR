@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA099C4823F43CBA00CA098B /* PromoCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA099C4723F43CBA00CA098B /* PromoCodes.swift */; };
 		F4F09DB71DAF669400026BB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F09DB61DAF669400026BB2 /* AppDelegate.swift */; };
 		F4F09DBC1DAF669400026BB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4F09DBA1DAF669400026BB2 /* Main.storyboard */; };
 		F4F09DBE1DAF669400026BB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4F09DBD1DAF669400026BB2 /* Assets.xcassets */; };
-		F4F09DC11DAF669400026BB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4F09DBF1DAF669400026BB2 /* LaunchScreen.storyboard */; };
 		F4F09DC91DAF6A3800026BB2 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F09DC81DAF6A3800026BB2 /* QRCodeViewController.swift */; };
 		F4F09DCB1DAF6A4F00026BB2 /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F09DCA1DAF6A4F00026BB2 /* QRScannerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA099C4723F43CBA00CA098B /* PromoCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoCodes.swift; sourceTree = "<group>"; };
 		F4F09DB31DAF669400026BB2 /* QRCodeReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCodeReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4F09DB61DAF669400026BB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4F09DBB1DAF669400026BB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F4F09DBD1DAF669400026BB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F4F09DC01DAF669400026BB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4F09DC21DAF669400026BB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4F09DC81DAF6A3800026BB2 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		F4F09DCA1DAF6A4F00026BB2 /* QRScannerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
@@ -59,10 +59,10 @@
 				F4F09DB61DAF669400026BB2 /* AppDelegate.swift */,
 				F4F09DBA1DAF669400026BB2 /* Main.storyboard */,
 				F4F09DBD1DAF669400026BB2 /* Assets.xcassets */,
-				F4F09DBF1DAF669400026BB2 /* LaunchScreen.storyboard */,
 				F4F09DC21DAF669400026BB2 /* Info.plist */,
 				F4F09DC81DAF6A3800026BB2 /* QRCodeViewController.swift */,
 				F4F09DCA1DAF6A4F00026BB2 /* QRScannerController.swift */,
+				DA099C4723F43CBA00CA098B /* PromoCodes.swift */,
 			);
 			path = QRCodeReader;
 			sourceTree = "<group>";
@@ -128,7 +128,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4F09DC11DAF669400026BB2 /* LaunchScreen.storyboard in Resources */,
 				F4F09DBE1DAF669400026BB2 /* Assets.xcassets in Resources */,
 				F4F09DBC1DAF669400026BB2 /* Main.storyboard in Resources */,
 			);
@@ -143,6 +142,7 @@
 			files = (
 				F4F09DC91DAF6A3800026BB2 /* QRCodeViewController.swift in Sources */,
 				F4F09DB71DAF669400026BB2 /* AppDelegate.swift in Sources */,
+				DA099C4823F43CBA00CA098B /* PromoCodes.swift in Sources */,
 				F4F09DCB1DAF6A4F00026BB2 /* QRScannerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,14 +156,6 @@
 				F4F09DBB1DAF669400026BB2 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F4F09DBF1DAF669400026BB2 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F4F09DC01DAF669400026BB2 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

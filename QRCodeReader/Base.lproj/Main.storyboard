@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -13,22 +13,25 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="QRCodeViewController" customModule="QRCodeReader" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PROMO QRCODE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTu-vV-sCL">
-                                <rect key="frame" x="8" y="14" width="304" height="48"/>
+                                <rect key="frame" x="55" y="58" width="304" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edC-9W-k50">
-                                <rect key="frame" x="81" y="494" width="158" height="34"/>
+                                <rect key="frame" x="128" y="788" width="158" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Mes Codes Promos"/>
+                                <connections>
+                                    <segue destination="dkk-Zp-G0C" kind="show" id="Cl2-uV-A13"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2c-aZ-o7l">
-                                <rect key="frame" x="35" y="159" width="250" height="250"/>
+                                <rect key="frame" x="82" y="323" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="HtP-fV-rs5"/>
                                     <constraint firstAttribute="width" constant="250" id="lgp-aj-BHK"/>
@@ -62,27 +65,27 @@
             <objects>
                 <viewController id="B0K-bi-dGX" customClass="QRScannerController" customModule="QRCodeReader" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xpT-9d-mEX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qba-q7-QE8">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmi-Qa-jYL">
-                                        <rect key="frame" x="138" y="38" width="44" height="24"/>
+                                        <rect key="frame" x="185" y="38" width="44" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4l-Jj-Ec8">
-                                        <rect key="frame" x="15" y="39" width="18" height="18"/>
+                                        <rect key="frame" x="15" y="39" width="30" height="18"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="18" id="7zr-eU-Vhq"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="29" id="7zr-eU-Vhq"/>
                                             <constraint firstAttribute="height" constant="18" id="Xlz-3i-oxt"/>
-                                            <constraint firstAttribute="width" constant="18" id="tZj-NC-FcJ"/>
+                                            <constraint firstAttribute="width" constant="30" id="tZj-NC-FcJ"/>
                                         </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" image="cross"/>
+                                        <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="backward" catalog="system"/>
                                         <connections>
                                             <segue destination="L9X-1P-o6Q" kind="unwind" unwindAction="unwindToHomeScreenWithSegue:" id="Wgu-Jv-Obf"/>
                                         </connections>
@@ -98,7 +101,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pas de QR Code détecté" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAl-zJ-uU4">
-                                <rect key="frame" x="0.0" y="508" width="320" height="40"/>
+                                <rect key="frame" x="0.0" y="768" width="414" height="40"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="oxm-IU-7Qk"/>
@@ -128,9 +131,47 @@
             </objects>
             <point key="canvasLocation" x="973.60000000000002" y="133.5832083958021"/>
         </scene>
+        <!--Promo Codes-->
+        <scene sceneID="TPk-lg-eXL">
+            <objects>
+                <viewController id="dkk-Zp-G0C" customClass="PromoCodes" customModule="QRCodeReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cm4-qe-bbr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kIX-vd-HoV">
+                                <rect key="frame" x="20" y="20" width="40" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" image="backward" catalog="system"/>
+                                <connections>
+                                    <action selector="Back:" destination="dkk-Zp-G0C" eventType="touchUpInside" id="qdu-Or-GXW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="La liste est actuellement vide." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QxJ-oK-lLt">
+                                <rect key="frame" x="87.666666666666686" y="410.33333333333331" width="239" height="21.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="kIX-vd-HoV" firstAttribute="top" secondItem="tWk-TJ-5Vr" secondAttribute="top" constant="20" id="E9x-29-nTh"/>
+                            <constraint firstItem="QxJ-oK-lLt" firstAttribute="centerX" secondItem="cm4-qe-bbr" secondAttribute="centerX" id="Kx9-Ji-Q9g"/>
+                            <constraint firstItem="QxJ-oK-lLt" firstAttribute="centerY" secondItem="cm4-qe-bbr" secondAttribute="centerY" id="pJg-jf-CWo"/>
+                            <constraint firstItem="kIX-vd-HoV" firstAttribute="leading" secondItem="tWk-TJ-5Vr" secondAttribute="leading" constant="20" id="yc7-Po-EN3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tWk-TJ-5Vr"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qCA-ix-pyu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DPP-X0-4iy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="971.01449275362324" y="817.63392857142856"/>
+        </scene>
     </scenes>
     <resources>
         <image name="QrCodeScan" width="512" height="512"/>
-        <image name="cross" width="40" height="40"/>
+        <image name="backward" catalog="system" width="64" height="38"/>
     </resources>
 </document>
