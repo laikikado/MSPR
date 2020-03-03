@@ -13,9 +13,9 @@ class QRScannerController: UIViewController {
 
     @IBOutlet var messageLabel:UILabel!
     @IBOutlet var topbar: UIView!
-    
+
     var captureSession = AVCaptureSession()
-    
+
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
 
@@ -32,7 +32,7 @@ class QRScannerController: UIViewController {
                                       AVMetadataObject.ObjectType.dataMatrix,
                                       AVMetadataObject.ObjectType.interleaved2of5,
                                       AVMetadataObject.ObjectType.qr]
-   
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -90,25 +90,90 @@ class QRScannerController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // MARK: - Helper methods
 
+    // MARK: - Helper methods
+    //Ajout des données liées au QrCode à la list
+    func addData(objectData: Any) {
+        var arrayData = [Any]()
+        arrayData = UserDefaults.standard.array(forKey: "CodePromoArray") as? [[String: String]] ?? []
+        arrayData.append(objectData)
+        UserDefaults.standard.set(arrayData, forKey: "CodePromoArray")
+    }
+
+    //Lecture du QrCode -> popup
     func launchApp(decodedURL: String) {
         
         if presentedViewController != nil {
             return
         }
         
-        let alertPrompt = UIAlertController(title: "Ouvrir l'App", message: "Vous allez être redirigé sur \(decodedURL)", preferredStyle: .actionSheet)
-        let confirmAction = UIAlertAction(title: "Confirmer", style: UIAlertAction.Style.default, handler: { (action) -> Void in
-            
-            if let url = URL(string: decodedURL) {
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url)
-                }
+        var objectData = [String: String]()
+        switch decodedURL {
+        case "1" :
+            objectData = ["id": "1",
+            "title": "Carrefour",
+            "discount": "10%",
+            "endDate": "10/04/2020"]
+        case "2":
+            objectData = ["id": "2",
+            "title": "Darty",
+            "discount": "20%",
+            "endDate": "01/01/2021"]
+        case "3":
+            objectData = ["id": "3",
+            "title": "McDonalds",
+            "discount": "15%",
+            "endDate": "29/06/2020"]
+        case "4":
+            objectData = ["id": "4",
+            "title": "Nike",
+            "discount": "5%",
+            "endDate": "10/02/2020"]
+        case "5":
+            objectData = ["id": "5",
+            "title": "Apple",
+            "discount": "10%",
+            "endDate": "23/09/2020"]
+        case "6":
+            objectData = ["id": "6",
+            "title": "Asus",
+            "discount": "30%",
+            "endDate": "11/11/2020"]
+        case "7":
+            objectData = ["id": "7",
+            "title": "Jules",
+            "discount": "20%",
+            "endDate": "14/05/2020"]
+        case "8":
+            objectData = ["id": "8",
+            "title": "Swarovski",
+            "discount": "10%",
+            "endDate": "28/08/2020"]
+        case "9":
+            objectData = ["id": "8",
+            "title": "Uniqlo",
+            "discount": "15%",
+            "endDate": "19/04/2020"]
+        case "10":
+            objectData = ["id": "10",
+            "title": "L'entrecôte",
+            "discount": "10%",
+            "endDate": "01/06/2020"]
+        default :
+            //QrCode non connu de la bdd
+            let alert = UIAlertController(title: "QrCode non reconnu", message: "Ce QrCode n'est pas reconnu comme code promotionnel par nos services.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "J'ai compris", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             }
-        })
         
+        // Demande si on ajoute le code promo à la liste
+        let alertPrompt = UIAlertController(title: "Un QrCode a été détecté !", message: "Voulez-vous ajouter le QrCode id: \(decodedURL) ?", preferredStyle: .actionSheet)
+        
+        // Si Confirmation alors
+        let confirmAction = UIAlertAction(title: "Ajouter", style: UIAlertAction.Style.default, handler: { (action) -> Void in
+            self.addData(objectData: objectData)
+        })
+        // Si annulation
         let cancelAction = UIAlertAction(title: "Annuler", style: UIAlertAction.Style.cancel, handler: nil)
         
         alertPrompt.addAction(confirmAction)
@@ -116,14 +181,16 @@ class QRScannerController: UIViewController {
         
         present(alertPrompt, animated: true, completion: nil)
     }
-  private func updatePreviewLayer(layer: AVCaptureConnection, orientation: AVCaptureVideoOrientation) {
+    
+    private func updatePreviewLayer(layer: AVCaptureConnection, orientation: AVCaptureVideoOrientation) {
     layer.videoOrientation = orientation
     videoPreviewLayer?.frame = self.view.bounds
-  }
-  
-  override func viewDidLayoutSubviews() {
+    }
+
+    // Gestion orientation caméra
+    override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
-    
+
     if let connection =  self.videoPreviewLayer?.connection  {
       let currentDevice: UIDevice = UIDevice.current
       let orientation: UIDeviceOrientation = currentDevice.orientation
@@ -135,13 +202,13 @@ class QRScannerController: UIViewController {
           updatePreviewLayer(layer: previewLayerConnection, orientation: .portrait)
           break
         case .landscapeRight:
-          updatePreviewLayer(layer: previewLayerConnection, orientation: .landscapeLeft)
+          updatePreviewLayer(layer: previewLayerConnection, orientation: .portrait)
           break
         case .landscapeLeft:
-          updatePreviewLayer(layer: previewLayerConnection, orientation: .landscapeRight)
+          updatePreviewLayer(layer: previewLayerConnection, orientation: .portrait)
           break
         case .portraitUpsideDown:
-          updatePreviewLayer(layer: previewLayerConnection, orientation: .portraitUpsideDown)
+          updatePreviewLayer(layer: previewLayerConnection, orientation: .portrait)
           break
         default:
           updatePreviewLayer(layer: previewLayerConnection, orientation: .portrait)
@@ -149,7 +216,7 @@ class QRScannerController: UIViewController {
         }
       }
     }
-  }
+    }
 
 }
 
@@ -167,7 +234,7 @@ extension QRScannerController: AVCaptureMetadataOutputObjectsDelegate {
         let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
         
         if supportedCodeTypes.contains(metadataObj.type) {
-            // Si les métadonnées trouvées sont égales aux métadonnées du code QR (ou code-barres), mettre à jour le texte de l'étiquette d'état et définissez les limites
+            // Si les métadonnées trouvées sont égales aux métadonnées du code QR, mettre à jour le texte de l'étiquette d'état et définissez les limites
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView?.frame = barCodeObject!.bounds
             

@@ -139,31 +139,85 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kIX-vd-HoV">
-                                <rect key="frame" x="20" y="20" width="40" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kIX-vd-HoV">
+                                <rect key="frame" x="20" y="20" width="25.333333333333329" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" image="backward" catalog="system"/>
                                 <connections>
                                     <action selector="Back:" destination="dkk-Zp-G0C" eventType="touchUpInside" id="qdu-Or-GXW"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="La liste est actuellement vide." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QxJ-oK-lLt">
-                                <rect key="frame" x="87.666666666666686" y="410.33333333333331" width="239" height="21.666666666666686"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GN5-Wc-gDU">
+                                <rect key="frame" x="20" y="20" width="25" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" image="backward" catalog="system"/>
+                                <connections>
+                                    <action selector="Back:" destination="dkk-Zp-G0C" eventType="touchUpInside" id="ZmL-q3-dE6"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QxJ-oK-lLt">
+                                <rect key="frame" x="160.66666666666666" y="18" width="93" height="26.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pib-Nl-ie5">
+                                <rect key="frame" x="20" y="69" width="374" height="739"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="codePromoCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="codePromoCell" textLabel="81D-eY-kpF" detailTextLabel="K8G-5q-uEj" rowHeight="110" style="IBUITableViewCellStyleValue1" id="tir-Zc-fKJ">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="110"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tir-Zc-fKJ" id="nZl-BC-g3d">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="110"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="81D-eY-kpF">
+                                                    <rect key="frame" x="20.000000000000004" y="45" width="33.333333333333336" height="20.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="K8G-5q-uEj">
+                                                    <rect key="frame" x="310" y="45" width="44" height="20.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHH-Vz-lIF">
+                                <rect key="frame" x="375" y="21.333333333333329" width="19" height="20.666666666666671"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" backgroundImage="trash" catalog="system"/>
+                                <connections>
+                                    <action selector="deleteList:" destination="dkk-Zp-G0C" eventType="touchUpInside" id="vFW-CT-A5d"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="tWk-TJ-5Vr" firstAttribute="trailing" secondItem="iHH-Vz-lIF" secondAttribute="trailing" constant="20" id="DaK-2a-bFz"/>
                             <constraint firstItem="kIX-vd-HoV" firstAttribute="top" secondItem="tWk-TJ-5Vr" secondAttribute="top" constant="20" id="E9x-29-nTh"/>
                             <constraint firstItem="QxJ-oK-lLt" firstAttribute="centerX" secondItem="cm4-qe-bbr" secondAttribute="centerX" id="Kx9-Ji-Q9g"/>
-                            <constraint firstItem="QxJ-oK-lLt" firstAttribute="centerY" secondItem="cm4-qe-bbr" secondAttribute="centerY" id="pJg-jf-CWo"/>
+                            <constraint firstItem="iHH-Vz-lIF" firstAttribute="top" secondItem="tWk-TJ-5Vr" secondAttribute="top" constant="22" id="RGh-Xj-oEy"/>
+                            <constraint firstItem="QxJ-oK-lLt" firstAttribute="top" secondItem="tWk-TJ-5Vr" secondAttribute="top" constant="18" id="vph-uK-ZxC"/>
                             <constraint firstItem="kIX-vd-HoV" firstAttribute="leading" secondItem="tWk-TJ-5Vr" secondAttribute="leading" constant="20" id="yc7-Po-EN3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tWk-TJ-5Vr"/>
                     </view>
                     <navigationItem key="navigationItem" id="qCA-ix-pyu"/>
+                    <connections>
+                        <outlet property="emptyListLabel" destination="QxJ-oK-lLt" id="96N-r0-Vz3"/>
+                        <outlet property="ui_tableView" destination="Pib-Nl-ie5" id="ZuT-pw-bMw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DPP-X0-4iy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -173,5 +227,6 @@
     <resources>
         <image name="QrCodeScan" width="512" height="512"/>
         <image name="backward" catalog="system" width="64" height="38"/>
+        <image name="trash" catalog="system" width="60" height="64"/>
     </resources>
 </document>

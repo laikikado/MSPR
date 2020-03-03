@@ -21,10 +21,8 @@ class QRCodeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     
     // Navigation
-
     @IBAction func unwindToHomeScreen(segue: UIStoryboardSegue) {
         dismiss(animated: true, completion: nil)
     }
