@@ -63,13 +63,14 @@ class PromoCodes: UIViewController, UITableViewDataSource {
         }
         
         let promoList = loadedCodePromo[indexPath.row]
+        
         //Cellule Title
-        
         titleLabel.text = promoList["title"]
-        //Cellule Promotion
         
+        //Cellule Promotion
         discountLabel.text = promoList["discount"]
         
+        //Cellule Date
         endDateLabel.text = promoList["endDate"]
 
         //Check la date
@@ -78,7 +79,7 @@ class PromoCodes: UIViewController, UITableViewDataSource {
         dateFormatter.dateFormat = "dd/MM/yyyy"
         let dateFromString = dateFormatter.date(from: dateString)
         let now = Date()
-        //Si date périmé
+        //Si date expirée
         if dateFromString! < now {
             titleLabel.textColor = UIColor.lightGray
             discountLabel.textColor = UIColor.lightGray
