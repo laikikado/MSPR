@@ -112,17 +112,17 @@ class QRScannerController: UIViewController {
         switch decodedURL {
         case "1" :
             objectData = ["id": "1",
-            "title": "Carrefour",
+            "title": "Supreme",
             "discount": "-10%",
             "endDate": "10/04/2020"]
         case "2":
             objectData = ["id": "2",
-            "title": "Darty",
+            "title": "Adidas",
             "discount": "-20%",
             "endDate": "01/01/2021"]
         case "3":
             objectData = ["id": "3",
-            "title": "McDonalds",
+            "title": "Vans",
             "discount": "-15%",
             "endDate": "29/06/2020"]
         case "4":
@@ -132,22 +132,22 @@ class QRScannerController: UIViewController {
             "endDate": "10/02/2020"]
         case "5":
             objectData = ["id": "5",
-            "title": "Apple",
+            "title": "Volcom",
             "discount": "-10%",
             "endDate": "23/09/2020"]
         case "6":
             objectData = ["id": "6",
-            "title": "Asus",
+            "title": "Carhartt",
             "discount": "-30%",
             "endDate": "11/11/2020"]
         case "7":
             objectData = ["id": "7",
-            "title": "Jules",
+            "title": "New Era",
             "discount": "-20%",
             "endDate": "14/05/2020"]
         case "8":
             objectData = ["id": "8",
-            "title": "Swarovski",
+            "title": "Brixton",
             "discount": "-10%",
             "endDate": "28/08/2020"]
         case "9":
@@ -157,7 +157,7 @@ class QRScannerController: UIViewController {
             "endDate": "19/04/2020"]
         case "10":
             objectData = ["id": "10",
-            "title": "L'entrecôte",
+            "title": "Element",
             "discount": "-10%",
             "endDate": "01/03/2020"]
         default :
