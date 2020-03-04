@@ -18,17 +18,21 @@ class PromoCodes: UIViewController, UITableViewDataSource {
     @IBAction func deleteList(_ sender: Any) {
         let arrayEmpty = [""]
         UserDefaults.standard.set(arrayEmpty, forKey: "CodePromoArray")
+        checkList()
         self.ui_tableView.reloadData()
-        viewDidLoad()
     }
     @IBOutlet weak var emptyListLabel: UILabel!
     @IBOutlet weak var ui_tableView: UITableView!
     
     var loadedCodePromo = [[String:String]]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ui_tableView.dataSource = self
+        checkList()
+    }
+    
+    func checkList() {
         loadedCodePromo = UserDefaults.standard.array(forKey: "CodePromoArray") as? [[String: String]] ?? []
         
         if loadedCodePromo.isEmpty {
@@ -37,45 +41,56 @@ class PromoCodes: UIViewController, UITableViewDataSource {
             emptyListLabel.text = "Liste de vos codes promos"
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return loadedCodePromo.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "codePromoCell", for: indexPath)
+        let cell : PromoCodeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "codePromoCell", for: indexPath) as! PromoCodeTableViewCell
+        
+        guard let titleLabel = cell.ui_titleLabel,
+            let discountLabel = cell.ui_discountLabel,
+            let endDateLabel = cell.ui_endDateLabel
+            else {
+                return cell
+        }
         
         let promoList = loadedCodePromo[indexPath.row]
         //Cellule Title
-        if let titleLabel = cell.textLabel {
-            titleLabel.text = promoList["title"]
-            //Cellule Promotion
-            if let discountLabel = cell.detailTextLabel {
-                discountLabel.text = promoList["discount"]
-                //Check la date
-                let dateString = promoList["endDate"]
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "dd/MM/yyyy"
-                let dateFromString = dateFormatter.date(from: dateString!)
-                let now = Date()
-                //Si date périmé
-                if dateFromString! < now {
-                    titleLabel.textColor = UIColor.lightGray
-                    discountLabel.textColor = UIColor.lightGray
-                    discountLabel.text = "Expiré"
-                //Si date est celle du jour
-                } else if dateFromString == now {
-                    titleLabel.textColor = UIColor.orange
-                    discountLabel.textColor = UIColor.orange
-                }
-            }
+        
+        titleLabel.text = promoList["title"]
+        //Cellule Promotion
+        
+        discountLabel.text = promoList["discount"]
+        
+        endDateLabel.text = promoList["endDate"]
+
+        //Check la date
+        let dateString = promoList["endDate"] ?? "01/01/1970"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let dateFromString = dateFormatter.date(from: dateString)
+        let now = Date()
+        //Si date périmé
+        if dateFromString! < now {
+            titleLabel.textColor = UIColor.lightGray
+            discountLabel.textColor = UIColor.lightGray
+            endDateLabel.textColor = UIColor.lightGray
+            endDateLabel.text = "Expiré"
+            //Si date est celle du jour
+        } else if dateFromString == now {
+            titleLabel.textColor = UIColor.orange
+            discountLabel.textColor = UIColor.orange
+            endDateLabel.textColor = UIColor.orange
         }
+        
         return cell
     }
 }

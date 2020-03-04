@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DA099C4823F43CBA00CA098B /* PromoCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA099C4723F43CBA00CA098B /* PromoCodes.swift */; };
+		DAE1C4D8240FE80700BC4F4A /* PromoCodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE1C4D7240FE80700BC4F4A /* PromoCodeTableViewCell.swift */; };
 		F4F09DB71DAF669400026BB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F09DB61DAF669400026BB2 /* AppDelegate.swift */; };
 		F4F09DBC1DAF669400026BB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4F09DBA1DAF669400026BB2 /* Main.storyboard */; };
 		F4F09DBE1DAF669400026BB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4F09DBD1DAF669400026BB2 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		DA099C4723F43CBA00CA098B /* PromoCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoCodes.swift; sourceTree = "<group>"; };
+		DAE1C4D7240FE80700BC4F4A /* PromoCodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoCodeTableViewCell.swift; sourceTree = "<group>"; };
 		F4F09DB31DAF669400026BB2 /* QRCodeReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCodeReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4F09DB61DAF669400026BB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4F09DBB1DAF669400026BB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				F4F09DC81DAF6A3800026BB2 /* QRCodeViewController.swift */,
 				F4F09DCA1DAF6A4F00026BB2 /* QRScannerController.swift */,
 				DA099C4723F43CBA00CA098B /* PromoCodes.swift */,
+				DAE1C4D7240FE80700BC4F4A /* PromoCodeTableViewCell.swift */,
 			);
 			path = QRCodeReader;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			files = (
 				F4F09DC91DAF6A3800026BB2 /* QRCodeViewController.swift in Sources */,
 				F4F09DB71DAF669400026BB2 /* AppDelegate.swift in Sources */,
+				DAE1C4D8240FE80700BC4F4A /* PromoCodeTableViewCell.swift in Sources */,
 				DA099C4823F43CBA00CA098B /* PromoCodes.swift in Sources */,
 				F4F09DCB1DAF6A4F00026BB2 /* QRScannerController.swift in Sources */,
 			);
