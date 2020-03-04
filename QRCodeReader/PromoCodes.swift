@@ -10,9 +10,11 @@ import UIKit
 
 class PromoCodes: UIViewController, UITableViewDataSource {
     
+    //Navigation
     @IBAction func Back(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
+    //Nettoyage liste QrCode
     @IBAction func deleteList(_ sender: Any) {
         let arrayEmpty = [""]
         UserDefaults.standard.set(arrayEmpty, forKey: "CodePromoArray")
@@ -22,12 +24,12 @@ class PromoCodes: UIViewController, UITableViewDataSource {
     @IBOutlet weak var emptyListLabel: UILabel!
     @IBOutlet weak var ui_tableView: UITableView!
     
-    var loadedCodePromo = [[String:Any]]()
+    var loadedCodePromo = [[String:String]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         ui_tableView.dataSource = self
-        loadedCodePromo = UserDefaults.standard.array(forKey: "CodePromoArray") as? [[String: Any]] ?? []
+        loadedCodePromo = UserDefaults.standard.array(forKey: "CodePromoArray") as? [[String: String]] ?? []
         
         if loadedCodePromo.isEmpty {
             emptyListLabel.text = "La liste est actuellement vide"
@@ -50,76 +52,30 @@ class PromoCodes: UIViewController, UITableViewDataSource {
         let cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "codePromoCell", for: indexPath)
         
         let promoList = loadedCodePromo[indexPath.row]
+        //Cellule Title
         if let titleLabel = cell.textLabel {
-            titleLabel.text = promoList["title"] as? String
+            titleLabel.text = promoList["title"]
+            //Cellule Promotion
+            if let discountLabel = cell.detailTextLabel {
+                discountLabel.text = promoList["discount"]
+                //Check la date
+                let dateString = promoList["endDate"]
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd/MM/yyyy"
+                let dateFromString = dateFormatter.date(from: dateString!)
+                let now = Date()
+                //Si date périmé
+                if dateFromString! < now {
+                    titleLabel.textColor = UIColor.lightGray
+                    discountLabel.textColor = UIColor.lightGray
+                    discountLabel.text = "Expiré"
+                //Si date est celle du jour
+                } else if dateFromString == now {
+                    titleLabel.textColor = UIColor.orange
+                    discountLabel.textColor = UIColor.orange
+                }
+            }
         }
-        if let discountLabel = cell.detailTextLabel {
-            discountLabel.text = promoList["discount"] as? String
-        }
-        
         return cell
     }
 }
-    /*
-    class PromoCodes: UIViewController, UITableViewController {
-    
-    @IBAction func Back(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
-    @IBOutlet weak var UI_TableViewCodePromo: UITableView!
-    
-    var loadedCodePromo = [[String:Any]]()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        loadedCodePromo = UserDefaults.standard.array(forKey: "CodePromoArray") as? [[String: Any]] ?? []
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UI_TableViewCodePromo.reloadData()
-    }
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return UI_TableViewCodePromo.numberOfRows(inSection: loadedCodePromo.count)
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "codePromoCell", for: indexPath)
-        
-        if let loadedCart = UserDefaults.standard.array(forKey: "CodePromoArray") as? [[String: Any]] {
-                let promo = loadedCart[indexPath.row]
-                //cell.UI_TitleCell.text = promo["title"] as? String?
-                cell.detailTextLabel?.text = promo["discount"] as? String
-        }
-        return cell
-    }*/
-    
-    /*
-    func loadTableView() {
-        if let loadedCart = UserDefaults.standard.array(forKey: "CodePromoArray") as? [[String: Any]] {
-        //            print(loadedCart)  // [[price: 19.99, qty: 1, name: A], [price: 4.99, qty: 2, name: B]]"
-        UI_TableViewCodePromo.numberOfRows(inSection: loadedCart.count)
-            for item in loadedCart {
-            print(item["name"]  as! String)    // A, B
-            //                print(item["price"] as! Double)    // 19.99, 4.99
-            //                print(item["qty"]   as! Int)
-            //                print(item["image"]   as! Int)  // 1, 2
-            UI_TableViewCodePromo.cellForRow(at: IndexPath) {
-                let item = loadedCart[indexPath.row]
-                cell.textLabel?.text = item["title"] as? String + item["discount"] as? String
-                cell.detailTextLabel?.text = item["endDate"] as? String
-                cell.idLabel.text = item["id"] as? String
-            }
-            }
-        }
-    }*/

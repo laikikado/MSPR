@@ -32,7 +32,7 @@ class QRScannerController: UIViewController {
                                       AVMetadataObject.ObjectType.dataMatrix,
                                       AVMetadataObject.ObjectType.interleaved2of5,
                                       AVMetadataObject.ObjectType.qr]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -92,6 +92,7 @@ class QRScannerController: UIViewController {
     }
 
     // MARK: - Helper methods
+    
     //Ajout des données liées au QrCode à la list
     func addData(objectData: Any) {
         var arrayData = [Any]()
@@ -112,53 +113,53 @@ class QRScannerController: UIViewController {
         case "1" :
             objectData = ["id": "1",
             "title": "Carrefour",
-            "discount": "10%",
+            "discount": "-10%",
             "endDate": "10/04/2020"]
         case "2":
             objectData = ["id": "2",
             "title": "Darty",
-            "discount": "20%",
+            "discount": "-20%",
             "endDate": "01/01/2021"]
         case "3":
             objectData = ["id": "3",
             "title": "McDonalds",
-            "discount": "15%",
+            "discount": "-15%",
             "endDate": "29/06/2020"]
         case "4":
             objectData = ["id": "4",
             "title": "Nike",
-            "discount": "5%",
+            "discount": "-5%",
             "endDate": "10/02/2020"]
         case "5":
             objectData = ["id": "5",
             "title": "Apple",
-            "discount": "10%",
+            "discount": "-10%",
             "endDate": "23/09/2020"]
         case "6":
             objectData = ["id": "6",
             "title": "Asus",
-            "discount": "30%",
+            "discount": "-30%",
             "endDate": "11/11/2020"]
         case "7":
             objectData = ["id": "7",
             "title": "Jules",
-            "discount": "20%",
+            "discount": "-20%",
             "endDate": "14/05/2020"]
         case "8":
             objectData = ["id": "8",
             "title": "Swarovski",
-            "discount": "10%",
+            "discount": "-10%",
             "endDate": "28/08/2020"]
         case "9":
             objectData = ["id": "8",
             "title": "Uniqlo",
-            "discount": "15%",
+            "discount": "-15%",
             "endDate": "19/04/2020"]
         case "10":
             objectData = ["id": "10",
             "title": "L'entrecôte",
-            "discount": "10%",
-            "endDate": "01/06/2020"]
+            "discount": "-10%",
+            "endDate": "01/03/2020"]
         default :
             //QrCode non connu de la bdd
             let alert = UIAlertController(title: "QrCode non reconnu", message: "Ce QrCode n'est pas reconnu comme code promotionnel par nos services.", preferredStyle: UIAlertController.Style.alert)
