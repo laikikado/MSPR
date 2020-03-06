@@ -151,7 +151,7 @@ class QRScannerController: UIViewController {
             "discount": "-10%",
             "endDate": "28/08/2020"]
         case "9":
-            objectData = ["id": "8",
+            objectData = ["id": "9",
             "title": "Uniqlo",
             "discount": "-15%",
             "endDate": "19/04/2020"]
